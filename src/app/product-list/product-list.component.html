@@ -1,9 +1,10 @@
 <h2>Products</h2>
 
-<div *ngFor="let product of products">
+<div *ngFor="let product of products; index as id">
 
 	<h3>
-		<a [title]="product.name + ' details'">
+		<!-- routage vers la vue détaillée lors du click sur le lien -->
+		<a [title]="product.name + ' details'" [routerLink]="['/products', id]">
 			{{ product.name }}
 		</a>
 	</h3>
