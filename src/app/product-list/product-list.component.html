@@ -1,0 +1,26 @@
+<h2>Products</h2>
+
+<div *ngFor="let product of products">
+
+	<h3>
+		<a [title]="product.name + ' details'">
+			{{ product.name }}
+		</a>
+	</h3>
+
+	<p *ngIf="product.description">
+		Description: {{ product.description }}
+	</p>
+
+	<button (click)="share()">
+    Share
+  </button>&nbsp;
+
+	<!-- 
+    Les crochets [product] indiquent que la propriété est le résultat d'une instruction 
+    qui doit être passée au composant associé à la balise
+  -->
+	<app-product-alerts [product]="product" (onClickNotify)="notifyMe()">
+	</app-product-alerts>
+
+</div>
